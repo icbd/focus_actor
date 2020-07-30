@@ -21,6 +21,8 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
+require 'focus_actor'
+
 class User
   include FocusActor::Async
   include FocusActor::Future
