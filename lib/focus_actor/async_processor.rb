@@ -7,10 +7,7 @@ module FocusActor
   #
   # Start a new thread, and then loop to call methods in mailbox.
   class AsyncProcessor
-    extend Forwardable
-
     attr_reader :instance, :mailbox
-    def_instance_delegator @instance, :respond_to?
 
     # mailbox should be thread safe
     def initialize(instance, mailbox: Queue.new)
@@ -22,8 +19,14 @@ module FocusActor
 
     # To call a method, push it to mailbox.
     def method_missing(method, *args, &block)
+      return super unless instance.respond_to?(method)
+
       mailbox.push CellContext.new(method, args, block)
       nil
+    end
+
+    def respond_to_missing?(method, include_all = false)
+      instance.respond_to?(method) || super
     end
 
     private

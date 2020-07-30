@@ -1,4 +1,3 @@
-require 'monitor'
 require_relative 'async_processor'
 
 module FocusActor
