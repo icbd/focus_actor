@@ -23,6 +23,7 @@ Or install it yourself as:
 ```ruby
 class User
   include FocusActor::Async
+  include FocusActor::Future
 
   attr_reader :name, :age
 
@@ -39,5 +40,6 @@ end
 
 user = User.new('Bob')
 user.async.grow(1) # return nil, without block
-
+future = user.future.grow(1) # return FutureCell
+future.value
 ```

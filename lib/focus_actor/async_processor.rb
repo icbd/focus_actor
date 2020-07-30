@@ -1,4 +1,3 @@
-require 'forwardable'
 require_relative 'cell_context'
 
 module FocusActor
@@ -29,9 +28,7 @@ module FocusActor
       instance.respond_to?(method) || super
     end
 
-    private
-
-    def run!
+    private def run!
       Thread.new do
         loop do
           cell_context = mailbox.pop

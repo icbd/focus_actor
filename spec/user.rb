@@ -1,7 +1,9 @@
 require_relative '../lib/focus_actor/async'
+require_relative '../lib/focus_actor/future'
 
 class User
   include FocusActor::Async
+  include FocusActor::Future
 
   attr_reader :name, :age
 
@@ -15,3 +17,6 @@ class User
     @age += 1
   end
 end
+
+CASE_TIMES = 5
+COST_TIME = 0.01 # second

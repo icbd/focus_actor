@@ -1,12 +1,5 @@
-RSpec.describe FocusActor do
-  it "has a version number" do
-    expect(FocusActor::VERSION).not_to be nil
-  end
-
-  describe 'User include Actor' do
-    CASE_TIMES = 5
-    COST_TIME = 0.1 # second
-
+RSpec.describe FocusActor::Async do
+  describe 'User include Async' do
     it 'async calls method without blocking' do
       user = User.new('Bob')
       start_at = Time.now.to_f
@@ -22,7 +15,7 @@ RSpec.describe FocusActor do
         user.async.grow(COST_TIME)
         expect(user.age).to eq origin_age
 
-        sleep COST_TIME + 0.5
+        sleep COST_TIME + 0.1
         expect(user.age).to eq origin_age + 1
       end
     end
