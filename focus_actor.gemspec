@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.email = ["wwwicbd@gmail.com"]
 
   spec.summary = %q{Actor Tools}
-  spec.description = %q{Actor Tools}
+  spec.description = %q{This is a toy tool to extend concurrency for objects.}
   spec.homepage = 'https://github.com/icbd/focus_actor'
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
 
@@ -16,6 +16,7 @@ Gem::Specification.new do |spec|
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "#{spec.homepage}.git"
   spec.metadata["changelog_uri"] = "#{spec.homepage}/tags"
+  spec.license = "MIT"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
