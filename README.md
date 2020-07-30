@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ```ruby
 class User
-  include FocusActor::Actor
+  include FocusActor::Async
 
   attr_reader :name, :age
 
